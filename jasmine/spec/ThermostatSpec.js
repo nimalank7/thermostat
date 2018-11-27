@@ -1,3 +1,5 @@
+'use strict';
+
 describe ("Thermostat", function() {
   var thermostat;
 
@@ -27,19 +29,17 @@ describe ("Thermostat", function() {
       expect(thermostat.powerSaving).toEqual(true);
     });
     it('doesnt increment past 25 if power saving mode is on', function() {
-      thermostat.powerSaving = true;
       expect(thermostat.up(6)).toEqual(false);
     });
     it('doesnt increment past 32 if powersaving mode is off', function(){
-      thermostat.powerSaving = false;
+      thermostat.switchesPowerSaving(); // Turns it off
       expect(thermostat.up(13)).toEqual(false);
     });
     it('isPowerSaving method returns true if power saving mode is off', function(){
-      thermostat.powerSaving = false;
+      thermostat.switchesPowerSaving(); // Turns it off
       expect(thermostat.isPowerSaving()).toEqual(false);
     });
     it('isPowerSaving method returns false if power saving mode is on', function(){
-      thermostat.powerSaving = true;
       expect(thermostat.isPowerSaving()).toEqual(true);
     });
     it('resets temperature to 20', function(){
