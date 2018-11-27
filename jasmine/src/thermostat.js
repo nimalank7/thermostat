@@ -1,6 +1,6 @@
 function Thermostat() {
   this.temperature = 20;
-  this.powerSaving = false;
+  this.powerSaving = true;
 
   this.up = function (increment) {
       if(this.isPowerSaving() && this.temperature + increment > 32){
@@ -20,5 +20,18 @@ function Thermostat() {
 
   this.isPowerSaving = function() {
       return this.powerSaving;
+  };
+
+  this.reset = function() {
+      this.temperature = 20;
+  };
+
+  this.usage = function() {
+      if(this.temperature < 18){
+        return "low-usage";
+      } else if(this.temperature < 25) {
+        return "medium-usage";
+      }
+      return "high-usage";
   };
 }
