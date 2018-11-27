@@ -4,8 +4,11 @@ function Thermostat() {
   this.temperature = 20;
   this.powerSaving = true;
   this.MINIMUM_TEMPERATURE = 10;
+  this.DEFAULT_TEMPERATURE = 20;
   this.MAX_TEMPATURE_POWER_ON = 32;
   this.MAX_TEMPATURE_POWER_OFF = 25;
+  this.LOW_USAGE_TEMP = 18;
+  this.MEDIUM_USAGE_TEMP = 25;
 
   this.up = function (increment) {
       if(this.isPowerSaving() && this.temperature + increment > this.MAX_TEMPATURE_POWER_ON){
@@ -32,13 +35,13 @@ function Thermostat() {
   }
 
   this.reset = function() {
-      this.temperature = 20;
+      this.temperature = this.DEFAULT_TEMPERATURE;
   };
 
   this.usage = function() {
-      if(this.temperature < 18){
+      if(this.temperature < this.LOW_USAGE_TEMP){
         return "low-usage";
-      } else if(this.temperature < 25) {
+      } else if(this.temperature < this.MEDIUM_USAGE_TEMP) {
         return "medium-usage";
       }
       return "high-usage";
