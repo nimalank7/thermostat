@@ -31,7 +31,6 @@ describe ("Thermostat", function() {
       expect(thermostat.up(6)).toEqual(false);
     });
     it('doesnt increment past 32 if powersaving mode is off', function(){
-      spyOn(thermostat, 'isPowerSaving').and.callThrough();
       expect(thermostat.up(13)).toEqual(false);
     });
     it('isPowerSaving method returns true if power saving mode is off', function(){
