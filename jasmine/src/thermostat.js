@@ -5,7 +5,7 @@ function Thermostat() {
   this.powerSaving = true;
   this.MINIMUM_TEMPERATURE = 10;
   this.DEFAULT_TEMPERATURE = 20;
-  this.MAX_TEMPATURE_POWER_ON = 32;
+  this.MAX_TEMPATURE_POWER_ON = 33;
   this.MAX_TEMPATURE_POWER_OFF = 25;
   this.LOW_USAGE_TEMP = 18;
   this.MEDIUM_USAGE_TEMP = 25;
