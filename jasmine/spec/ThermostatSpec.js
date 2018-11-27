@@ -24,11 +24,22 @@ describe ("Thermostat", function() {
       expect(thermostat.temperature).toEqual(20);
     });
     it('sets power saving mode off for false', function() {
-      expect(thermostat.isPowerSaving).toEqual(false);
+      expect(thermostat.powerSaving).toEqual(false);
     });
     it('doesnt increment past 25 if power saving mode is on', function() {
-      thermostat.isPowerSaving = true;
+      thermostat.powerSaving = true;
       expect(thermostat.up(6)).toEqual(false);
+    });
+    it('doesnt increment past 32 if powersaving mode is off', function(){
+      spyOn(thermostat, 'isPowerSaving').and.callThrough();
+      expect(thermostat.up(13)).toEqual(false);
+    });
+    it('isPowerSaving method returns true if power saving mode is off', function(){
+      expect(thermostat.isPowerSaving()).toEqual(false);
+    });
+    it('isPowerSaving method returns false if power saving mode is on', function(){
+      thermostat.powerSaving = true;
+      expect(thermostat.isPowerSaving()).toEqual(true);
     });
   });
 });
