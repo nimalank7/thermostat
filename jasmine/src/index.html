@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Thermostate</title>
+    <title>Thermostat</title>
   </head>
   <body>
     <div class="current_temp">
@@ -15,8 +15,14 @@
       <h1 id="current_power_mode">On</h1>
       <button id="power_mode" value="power_mode">Power mode</button>
     </div>
-    <div id="useage">
+    <div id="useage" style="width: 100px; background-color: blue; height: 50px;">
     </div>
     <script src="./thermostat.js"></script>
+    <script src="../lib/jquery.js"></script>
+    <script src="./events.js"></script>
+    <div class="temp_in_city">
+      <h1 id="current_city">London</h1>
+      <h1 id="temp_in_london"></h1>
+    </div>
   </body>
 </html>
