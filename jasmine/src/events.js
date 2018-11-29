@@ -1,5 +1,9 @@
 $( document ).ready(function() {
   var thermostat = new Thermostat();
+  var api = "http://api.openweathermap.org/data/2.5/weather"
+  var city = "?q=London,uk"
+  var units = "&units=metric"
+  var apikey = "&APPID=1a399910755d200872938695ed0eb968"
   function updateUsage() {
     if (thermostat.usage() == "high-usage"){
       console.log(thermostat.usage());
@@ -44,7 +48,10 @@ $( document ).ready(function() {
     $.ajax({
 
       // The URL for the request
-      url: "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=1a399910755d200872938695ed0eb968",
+
+
+      url: api + city + apikey + units,
+      //url: "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=1a399910755d200872938695ed0eb968",
 
       // The data to send (will be converted to a query string)
 
